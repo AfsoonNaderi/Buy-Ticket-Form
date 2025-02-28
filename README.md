@@ -30,7 +30,7 @@ This project is a simple ticket booking form where users can enter their details
 ## 🛠 How to Run the Project
 Download or clone the project:
    ```sh
-   git clone https://github.com/your-username/ticket-form.git
+   git clone https://github.com/AfsoonNaderi/Buy-Ticket-Form.git
 
 
 
