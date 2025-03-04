@@ -1,25 +1,27 @@
 let city = document.getElementById('city');
+let country = document.getElementById('country');
 let btn = document.getElementById('btn');
 
 let firstName = document.querySelector('.firstName');
 firstName.addEventListener('input',firstNameValidation);
 
 let lastName = document.querySelector('.lastName');
-// lastName.addEventListener('input', lastNameValidation);
+lastName.addEventListener('input',lastNameValidation);
 
 let phone = document.querySelector('.phone');
 phone.addEventListener('input',phoneValidation);
-// let email = document.querySelector('.email');
 
-city.addEventListener('change',updateCities);
+
+let email = document.querySelector('.email');
+email.addEventListener('input',emailValidation)
+
+country.addEventListener('change',updateCities);
 btn.addEventListener('click',validateForm);
-// city.innerHTML = "<option value=''> Choose City </option> ";
+
 
 function updateCities(){
-    // let city = document.getElementById('city');
     let country = document.getElementById('country').value;
     city.innerHTML="";
-    // city.innerHTML = "<option value=''> Choose City </option> ";
 
     let cityDic =[];
     if(country == 'iran' ){
@@ -37,7 +39,6 @@ function updateCities(){
 
         city.appendChild(cityOptions);
     }
-    cityOptions.value="";
 }
 
 function validateForm() {
@@ -47,6 +48,9 @@ function validateForm() {
     let message = document.getElementById('message');
     let errorMessage = document.getElementById('errorMessage');
     let nameMessage = document.getElementById('nameMessage');
+    let lastNameMessage = document.getElementById('lastNameMessage');
+    let EmailMessage = document.getElementById('EmailMessage');
+
 
 
     if (!city || !country){
@@ -57,8 +61,12 @@ function validateForm() {
         errorMessage.style.display = 'none';
         message.style.display = 'none';
         nameMessage.style.display = 'none';
+        lastNameMessage.style.display= 'none';
+        EmailMessage.style.display ='none';
         phone.value="";
         firstName.value="";
+        lastName.value="";
+        email.value="";
     }, 2000);
 }
 
@@ -96,16 +104,32 @@ function firstNameValidation(){
     }
 }
 
-// function lastNameValidation(){
-//     let nameMessage = document.getElementById('nameMessage');
-//     if(firstName.value.length>=3){
-//         nameMessage.classList.remove('invalid');
-//         nameMessage.classList.add('valid');
-//         nameMessage.textContent = 'Your first name is valid';
-//     } else {
-//         nameMessage.classList.remove('valid');
-//         nameMessage.classList.add('invalid');
-//         nameMessage.textContent = 'first name must be at least 3 characters';
-//     }
-// }
+function lastNameValidation(){
+    let lastNameMessage = document.getElementById('lastNameMessage');
+    if(lastName.value.length>=3){
+        lastNameMessage.classList.remove('invalid');
+        lastNameMessage.classList.add('valid');
+        lastNameMessage.textContent = 'Your last name is valid';
+    } else {
+        lastNameMessage.classList.remove('valid');
+        lastNameMessage.classList.add('invalid');
+        lastNameMessage.textContent = 'last name must be at least 3 characters';
+    }
+}
 
+function emailValidation() {
+    let email = document.querySelector('.email');
+    let EmailMessage = document.getElementById('EmailMessage');
+
+    let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+    if (email.value.match(emailPattern)) {
+        EmailMessage.textContent = 'Email is valid';
+        EmailMessage.classList.remove('invalid');
+        EmailMessage.classList.add('valid');
+    } else {
+        EmailMessage.textContent = 'Please enter a valid email';
+        EmailMessage.classList.remove('valid');
+        EmailMessage.classList.add('invalid');
+    }
+}

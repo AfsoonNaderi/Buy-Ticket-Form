@@ -1,6 +1,5 @@
 body {
     font-family: Arial, sans-serif;
-    /* background-color: #e3f2fd; */
     background-color: #A1E3F9;
     display: flex;
     justify-content: center;
@@ -10,7 +9,6 @@ body {
     margin: 0;
 }
 .container {
-    /* background: #ffffff; */
     background-color: #D1F8EF;
     padding: 30px;
     border-radius: 15px;
@@ -22,15 +20,20 @@ body {
 .input-group {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 22px;
+    margin-bottom: 15px;
+    gap: 35px;
+}
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 93%;
+    margin-bottom: 10px;
 }
 input {
-    width: 45%;
     padding: 10px;
     border: 1px solid #A1E3F9;
     border-radius: 8px;
     font-size: 15px;
-    /* outline: none; */
     transition: border-color 0.3s ease;
 }
 input:focus {
@@ -57,7 +60,6 @@ select:focus {
 
 button {
     width: 100%;
-    /* background-color: #007bff; */
     background-color: #3674B5;
     color: white;
     font-size: 18px;
@@ -96,12 +98,3 @@ button:hover {
     margin-top: 2.5rem;
     padding-inline-start: 10px;
 }
-#lastNameMessage{
-    position: absolute;
-    margin-top: 2.5rem;
-    right: 43%;
-}
-/* #message {
-    position: absolute;
-    margin-top: 2.5rem;
-} */
